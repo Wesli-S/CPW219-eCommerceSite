@@ -6,7 +6,7 @@ For the time being, the project is simply a testing ground of sorts to get used 
 ![Screenshot (521)](https://github.com/Wesli-S/CPW219-eCommerceSite/assets/146999017/7610bee3-640f-4d94-98ee-f9c0d4c62f37)
 
 ---
-## What you'll need to run this project
+## Prerequisites
 - Visual Studio 2022 (or higher)
 - .NET Version 8.0 
 - NuGet Packages:
