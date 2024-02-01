@@ -21,13 +21,13 @@ namespace CPW219_eCommerceSite.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(MenuItem menuItem)
+        public async Task<IActionResult> Create(MenuItem menuItem)
         {
             if (ModelState.IsValid)
             {
                 //Add to DB
                 _context.MenuItems.Add(menuItem); //prepares insert
-                _context.SaveChanges();           //executes pending insert
+                await _context.SaveChangesAsync();//executes pending insert
 
                 //Show success message on page
                 ViewData["Message"] = $"{menuItem.MenuItemName} was added successfully!";
