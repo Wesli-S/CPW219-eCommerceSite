@@ -2,6 +2,7 @@
 using CPW219_eCommerceSite.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.EntityFrameworkCore;
 using System.Drawing.Text;
 
 namespace CPW219_eCommerceSite.Controllers
@@ -12,6 +13,17 @@ namespace CPW219_eCommerceSite.Controllers
         public MenuItemController(MenuItemContext context)
         {
                 _context = context;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            // Get all games from the DB
+            List<MenuItem> menu = await (from menuItem in _context.MenuItems 
+                                         select menuItem).ToListAsync();
+
+            //Show them on the page
+
+            return View(menu);
         }
 
         [HttpGet]
