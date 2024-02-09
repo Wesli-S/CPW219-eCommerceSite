@@ -99,5 +99,16 @@ namespace CPW219_eCommerceSite.Controllers
             TempData["Message"] = menuItemToDelete.MenuItemName + " has already been deleted before!";
             return RedirectToAction("Index");
         }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            MenuItem? menuItemDetails = await _context.MenuItems.FindAsync(id);
+
+            if (menuItemDetails == null)
+            {
+                return NotFound();
+            }
+            return View(menuItemDetails);
+        }
     }
 }
