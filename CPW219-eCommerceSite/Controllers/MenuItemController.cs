@@ -17,12 +17,11 @@ namespace CPW219_eCommerceSite.Controllers
 
         public async Task<IActionResult> Index()
         {
-            // Get all games from the DB
+            // Get all menu items from the DB
             List<MenuItem> menu = await (from menuItem in _context.MenuItems 
                                          select menuItem).ToListAsync();
 
             //Show them on the page
-
             return View(menu);
         }
 
