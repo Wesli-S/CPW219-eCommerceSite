@@ -47,5 +47,30 @@ namespace CPW219_eCommerceSite.Controllers
             }
             return View(menuItem);
         } 
+         
+        public async Task<IActionResult> Edit(int id) 
+        {
+            MenuItem? menuItemToEdit = await _context.MenuItems.FindAsync(id);
+            if(menuItemToEdit == null)
+            {
+                return NotFound();
+            }
+
+            return View(menuItemToEdit);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit (MenuItem menuItemModel)
+        {
+            if(ModelState.IsValid)
+            {
+                _context.MenuItems.Update(menuItemModel);
+                await _context.SaveChangesAsync();
+
+                TempData["Message"] = $"{menuItemModel.MenuItemName} was updated successfully!";
+                return RedirectToAction("Index");
+            }
+            return View(menuItemModel);
+        }
     }
 }
