@@ -72,5 +72,32 @@ namespace CPW219_eCommerceSite.Controllers
             }
             return View(menuItemModel);
         }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            MenuItem? menuItemToDelete = await _context.MenuItems.FindAsync(id);
+
+            if( menuItemToDelete == null)
+            {
+                return NotFound();
+            }
+            return View(menuItemToDelete);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> ConfirmDelete(int id)
+        {
+            MenuItem menuItemToDelete = await _context.MenuItems.FindAsync(id);
+            if(menuItemToDelete != null)
+            {
+                _context.Remove(menuItemToDelete);
+                await _context.SaveChangesAsync();
+                TempData["Message"] = menuItemToDelete.MenuItemName + " was deleted successfully!";
+                return RedirectToAction("Index");
+            }
+
+            TempData["Message"] = menuItemToDelete.MenuItemName + " has already been deleted before!";
+            return RedirectToAction("Index");
+        }
     }
 }
