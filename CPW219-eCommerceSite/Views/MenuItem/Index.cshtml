@@ -1,0 +1,41 @@
+﻿@model IEnumerable<MenuItem>
+
+@{
+    ViewData["Title"] = "Menu Items Catalog";
+}
+
+<h1>Menu</h1>
+
+<p>
+    <a asp-action="Create" asp-controller="MenuItems">Create New Menu Item</a>
+</p>
+<table class="table table-warning table-hover">
+    <thead>
+        <tr>
+            <th scope="col">🐝</th>
+            <th scope="col">Food Item</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (MenuItem item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MenuItemID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MenuItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MenuItemPrice)
+            </td>
+            <td>
+                <a class="btn btn-outline-dark" asp-action="Edit" asp-route-id="@item.MenuItemID">Edit</a>
+                <a class="btn btn-outline-dark" asp-action="Details" asp-route-id="@item.MenuItemID">Details</a>
+                <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.MenuItemID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
