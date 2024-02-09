@@ -58,18 +58,5 @@ namespace CPW219_eCommerceSite.Controllers
 
             return View(menuItemToEdit);
         }
-
-        [HttpPost]
-        public async Task<IActionResult> Edit (MenuItem menuItemModel)
-        {
-            if(ModelState.IsValid)
-            {
-                _context.MenuItems.Update(menuItemModel);
-                await _context.SaveChangesAsync();
-
-                return RedirectToAction("Index");
-            }
-            return View (menuItemModel);
-        }
     }
 }
