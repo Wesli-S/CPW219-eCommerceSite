@@ -3,6 +3,7 @@ using CPW219_eCommerceSite.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CPW219_eCommerceSite.Migrations
 {
     [DbContext(typeof(MenuItemContext))]
-    partial class MenuItemContextModelSnapshot : ModelSnapshot
+    [Migration("20240213200112_AddedMember")]
+    partial class AddedMember
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,9 +41,11 @@ namespace CPW219_eCommerceSite.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MemberId");
@@ -66,30 +71,6 @@ namespace CPW219_eCommerceSite.Migrations
                     b.HasKey("MenuItemID");
 
                     b.ToTable("MenuItems");
-                });
-
-            modelBuilder.Entity("CPW219_eCommerceSite.Models.RegisterViewModel", b =>
-                {
-                    b.Property<string>("Email")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("ConfirmEmail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ConfirmPassword")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(75)
-                        .HasColumnType("nvarchar(75)");
-
-                    b.HasKey("Email");
-
-                    b.ToTable("RegisterViewModel");
                 });
 #pragma warning restore 612, 618
         }
