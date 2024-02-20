@@ -15,5 +15,6 @@ namespace CPW219_eCommerceSite.Data
 
         public DbSet<Member> Members { get; set; }
         public DbSet<CPW219_eCommerceSite.Models.RegisterViewModel> RegisterViewModel { get; set; } = default!;
+        public DbSet<CPW219_eCommerceSite.Models.LoginViewModel> LoginViewModel { get; set; } = default!;
     }
 }
