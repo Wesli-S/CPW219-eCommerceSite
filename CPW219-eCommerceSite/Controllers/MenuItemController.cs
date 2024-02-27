@@ -22,15 +22,20 @@ namespace CPW219_eCommerceSite.Controllers
 
             int currPage = id.HasValue ? id.Value : 1; //if id hasValue, return value. else id = 1.
 
+            int totalNumOfProducts = await _context.MenuItems.CountAsync();
+            double MaxNumPages = Math.Ceiling((double)totalNumOfProducts / NumItemsToDisplayPerPage);
+            int lastPage = Convert.ToInt32(MaxNumPages); //Pages are rounded up to the next whole page number
+
             // Get all menu items from the DB
             List<MenuItem> menu = await (from menuItem in _context.MenuItems 
                                          select menuItem)
                                          .Skip(NumItemsToDisplayPerPage * (currPage - PageOffset))
                                          .Take(NumItemsToDisplayPerPage)
                                          .ToListAsync();
+            MenuCatalogViewModel catalogModel = new(menu, lastPage, currPage);
 
             //Show them on the page
-            return View(menu);
+            return View(catalogModel);
         }
 
         [HttpGet]
