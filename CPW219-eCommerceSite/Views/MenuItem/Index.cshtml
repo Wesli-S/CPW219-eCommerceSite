@@ -45,6 +45,7 @@
                         <a class="btn btn-outline-dark" asp-action="Edit" asp-route-id="@item.MenuItemID">Edit</a>
                         <a class="btn btn-outline-dark" asp-action="Details" asp-route-id="@item.MenuItemID">Details</a>
                         <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.MenuItemID">Delete</a>
+                        <a class="btn btn-outline-success" asp-controller="Cart" asp-action="Add" asp-route-id="@item.MenuItemID">Add to Cart</a>
                     </td>
                 </tr>
             }
