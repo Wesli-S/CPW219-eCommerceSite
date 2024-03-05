@@ -25,4 +25,14 @@ namespace CPW219_eCommerceSite.Models
         [Range(0, int.MaxValue)]        
         public double MenuItemPrice { get; set; }
     }
+
+    public class CartItemViewModel
+    {
+        [Key]
+        public int ItemId { get; set; }
+
+        public string ItemName { get; set; }    
+
+        public double ItemPrice { get; set; } 
+    }
 }
