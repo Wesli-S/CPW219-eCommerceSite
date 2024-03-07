@@ -9,7 +9,15 @@ For the time being, the project is simply a testing ground of sorts to get used 
 ## Prerequisites
 - Visual Studio 2022 (or higher)
 - .NET Version 8.0 
-- NuGet Packages:
-  - Microsoft.ASPNetCore.Diagnostics.EntityFrameworkCore
-  - Microsoft.EntityFrameworkCore.SqlServer
-  - Microsoft.EntityFrameworkCore.Tools
+- NuGet Packages
+
+## How to Install Database
+1. Make sure all necessary NuGet packages are installed:
+* Microsoft.EntityFrameworkCore.SqlServer
+* Microsoft.EntityFrameworkCore.Tools
+      
+_Once your NuGet packages have finished installing:_   
+2. Open the **Package Manager** (Tools -> NuGet Package Manager -> Package Manager Console)   
+3. Execute the command `Update-Database` (no spaces!)   
+4. Check your **SQL Server Object Explorer** for the **CPW211_MurderMystery database** under localdb.    
+5. Done!  
