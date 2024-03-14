@@ -3,7 +3,10 @@ The purpose of this project is to get experience in using [ASP.NET](https://dotn
 
 ## The Project
 For the time being, the project is simply a testing ground of sorts to get used to the concepts listed above. This version of the assignment is tailored to mimic a website for a fictional café, specifically what food and beverage items are available for purchase. A database was created alongside this project in order to keep track of these items, as well as maintain order in the code overall.
-![Screenshot (521)](https://github.com/Wesli-S/CPW219-eCommerceSite/assets/146999017/7610bee3-640f-4d94-98ee-f9c0d4c62f37)
+![Screenshot (566)](https://github.com/Wesli-S/CPW219-eCommerceSite/assets/146999017/0759aaaf-eb81-491e-ae33-103dfb5e7b2d)
+![Screenshot (567)](https://github.com/Wesli-S/CPW219-eCommerceSite/assets/146999017/a2fd4e1d-ce09-46da-96e8-e0486754fc8c)
+![Screenshot (568)](https://github.com/Wesli-S/CPW219-eCommerceSite/assets/146999017/5e952e76-d28a-40e3-b521-dae69bbfc859)
+![Screenshot (569)](https://github.com/Wesli-S/CPW219-eCommerceSite/assets/146999017/6eb0b5d8-5b12-48ba-b470-cbf26b23530f)
 
 ---
 ## Prerequisites
